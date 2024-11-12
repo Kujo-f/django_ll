@@ -130,7 +130,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My custom settings
-LOGIN_URL = '/users/login'
 
 # Settings for django-bootstrap3
 BOOTSTRAP3 = {
@@ -138,3 +137,4 @@ BOOTSTRAP3 = {
 }
 
 # Custom setting for Login Url
+LOGIN_REDIRECT_URL = '/'
