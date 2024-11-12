@@ -136,3 +136,5 @@ LOGIN_URL = '/users/login'
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
+
+# Custom setting for Login Url

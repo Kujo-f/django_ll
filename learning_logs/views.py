@@ -7,6 +7,7 @@ from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 
 # Create your views here.
+"""@Login_required authenticates the user for clients security."""
 def index(request):
     """The home page for Learning Log"""
     return render(request, 'learning_logs/index.html')
@@ -68,7 +69,7 @@ def new_entry(request, topic_id):
 @login_required
 def edit_entry(request, entry_id):
     """Edit an existing entry"""
-    entry = Entry.objects.get(id_entry_id)
+    entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
     if topic.owner != request.user:
         raise Http404
@@ -84,4 +85,4 @@ def edit_entry(request, entry_id):
             return HttpResponseRedirect(reverse('learning_logs:topic',
                                                 args=[topic.id]))
     context = {'entry': entry, 'topic': topic, 'form': form}
-    return render(request, 'learning_logs/edit_entry.hmtl', context)
+    return render(request, 'learning_logs/edit_entry.html', context)
